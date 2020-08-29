@@ -101,3 +101,11 @@ function validatePIN (pin) {
   return /^\d{4}(\d{2})?$/.test(pin);
 }
 ```
+
+## Triangle check
+
+```js
+function isTriangle(a,b,c) {
+ return a + b > c && a + c > b && b + c > a;
+}
+```
