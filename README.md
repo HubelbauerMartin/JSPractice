@@ -17,3 +17,46 @@ function filter_list(l) {
   return result;
 }
 ```
+
+## Extract number and sort
+
+```js
+function order(words) {
+  // Keep track of resulting ordered strings
+  let result = [];
+  
+  // Split words string into pairs of word + number, eg: T4est
+  let pairs = words.split(' ');
+  
+  // Extract number and letters from each pair
+  for (let pair of pairs) {
+    let word = '';
+    let number = 0;
+    
+    // Check each character of the pair to determine letter/digit
+    for (let index = 0; index < pair.length; index++) {
+      let letterOrDigit = pair[index];
+      let maybeNumber = parseInt(letterOrDigit);
+      
+      // Handle the character being a letter
+      if (Number.isNaN(maybeNumber)) {
+        // Collect all characters which are letters
+        word += letterOrDigit;
+      }
+      
+      // Handle the character being a number
+      else {
+        // Remember the number we found in the pair
+        number = maybeNumber;
+      }
+    }
+    
+    // Derive index in result array from the position number
+    let index = number - 1;
+    result[index] = word;
+  }
+  
+  // Join the array into a string separated by spaces
+  return result.join(' ');
+}
+```
