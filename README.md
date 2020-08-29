@@ -60,3 +60,35 @@ function order(words) {
   return result.join(' ');
 }
 ```
+
+## Extract number simplified
+
+```js
+function order(words) {
+  // Keep track of resulting ordered strings
+  let result = [];
+  
+  // Split words string into pairs of word + number, eg: T4est
+  let pairs = words.split(' ');
+  
+  // Extract number and letters from each pair
+  for (let pair of pairs) {
+    // Check each character of the pair to determine letter/digit
+    for (let index = 0; index < pair.length; index++) {
+      let letterOrDigit = pair[index];
+      let maybeNumber = parseInt(letterOrDigit);
+      
+      // Handle the character being a digit
+      if (!Number.isNaN(maybeNumber)) {
+        // Place the pair into the result array at index derived from number
+        let index = maybeNumber - 1;
+        result[index] = pair;
+        break;
+      }
+    }
+  }
+  
+  // Join the array into a string separated by spaces
+  return result.join(' ');
+}
+```
