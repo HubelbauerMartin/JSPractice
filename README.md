@@ -109,3 +109,11 @@ function isTriangle(a,b,c) {
  return a + b > c && a + c > b && b + c > a;
 }
 ```
+
+## Space removal using regex
+
+```js
+function noSpace(x){
+  return x.replace(/ /g, '');
+}
+```
