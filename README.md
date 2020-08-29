@@ -92,3 +92,12 @@ function order(words) {
   return result.join(' ');
 }
 ```
+
+## Regex practice
+
+```js
+// https://regex101.com/
+function validatePIN (pin) {
+  return /^\d{4}(\d{2})?$/.test(pin);
+}
+```
